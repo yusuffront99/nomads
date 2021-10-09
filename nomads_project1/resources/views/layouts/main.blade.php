@@ -9,10 +9,10 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Dashboard</title>
+    <title>Dashboard | Joumble</title>
 
     <!-- Custom fonts for this template-->
-    @include('includes.style')
+    @include('includes.admin.style')
 
 </head>
 
@@ -22,18 +22,18 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        @include('includes.sidebar')
+        @include('includes.admin.sidebar')
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
 
             <!-- Main Content -->
-            @include('includes.navbar')
+            @include('includes.admin.navbar')
             <!-- End of Main Content -->
 
             <!-- Footer -->
-            @include('includes.footer')
+            @include('includes.admin.footer')
             <!-- End of Footer -->
 
         </div>
@@ -68,7 +68,7 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    @include('includes.script')
+    @include('includes.admin.script')
 
 </body>
 
