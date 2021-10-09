@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.checkout')
 
 @section('container')
 <main>
