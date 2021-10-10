@@ -3,8 +3,10 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+
 use App\Http\Controllers\DetailsController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin\DashboardController;
 
 /*
@@ -30,3 +32,4 @@ Route::prefix('admin')
     });
 
 Auth::routes();
+
