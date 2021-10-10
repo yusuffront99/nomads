@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DetailsController;
@@ -23,7 +24,9 @@ Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');
 Route::get('/checkout/success', [CheckoutController::class, 'success'])->name('checkout-success');
 
 Route::prefix('admin')
-    ->namespace('Admin')
+    ->namespace('Admin')->middleware(['auth','admin'])
     ->group(function(){
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     });
+
+Auth::routes();
