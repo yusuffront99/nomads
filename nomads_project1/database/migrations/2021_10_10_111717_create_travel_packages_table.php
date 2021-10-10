@@ -17,7 +17,7 @@ class CreateTravelPackagesTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('slug');
-            $table->string('loccation');
+            $table->string('location');
             $table->longText('about');
             $table->string('featured_event');
             $table->string('language');
