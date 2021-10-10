@@ -30,23 +30,23 @@
 
                         <div class="gallery">
                             <div class="xzoom-container">
-                                <img src="frontend/images/pict.png" alt="wallpaper" class="xzoom" id="xzoom-default" xoriginal="frontend/images/pict.png">
+                                <img src="{{url('frontend/images/pict.png')}}" alt="wallpaper" class="xzoom" id="xzoom-default" xoriginal="frontend/images/pict.png">
                             </div>
                             <div class="xzoom-thumbs">
-                                <a href="frontend/images/pict.png">
-                                    <img src="frontend/images/pict.png" alt="thumbnail" class="xzoom-gallery" width="128" xpreview="frontend/images/pict.png">
+                                <a href="{{url('frontend/images/pict.png')}}">
+                                    <img src="{{url('frontend/images/pict.png')}}" alt="thumbnail" class="xzoom-gallery" width="128" xpreview="frontend/images/pict.png">
                                 </a>
-                                <a href="frontend/images/thumb2.png">
-                                    <img src="frontend/images/thumb2.png" alt="thumbnail" class="xzoom-gallery" width="128" xpreview="frontend/images/thumb2.png">
+                                <a href="{{url('frontend/images/thumb2.png')}}">
+                                    <img src="{{url('frontend/images/thumb2.png')}}" alt="thumbnail" class="xzoom-gallery" width="128" xpreview="frontend/images/thumb2.png">
                                 </a>
-                                <a href="frontend/images/thumb3.png">
-                                    <img src="frontend/images/thumb3.png" alt="thumbnail" class="xzoom-gallery" width="128" xpreview="frontend/images/thumb3.png">
+                                <a href="{{url('frontend/images/thumb3.png')}}">
+                                    <img src="{{url('frontend/images/thumb3.png')}}" alt="thumbnail" class="xzoom-gallery" width="128" xpreview="frontend/images/thumb3.png">
                                 </a>
-                                <a href="frontend/images/thumb4.png">
-                                    <img src="frontend/images/thumb4.png" alt="thumbnail" class="xzoom-gallery" width="128" xpreview="frontend/images/thumb4.png">
+                                <a href="{{url('frontend/images/thumb4.png')}}">
+                                    <img src="{{url('frontend/images/thumb4.png')}}" alt="thumbnail" class="xzoom-gallery" width="128" xpreview="frontend/images/thumb4.png">
                                 </a>
-                                <a href="frontend/images/pict5.png">
-                                    <img src="frontend/images/pict5.png" alt="thumbnail" class="xzoom-gallery" width="128" xpreview="frontend/images/pict5.png">
+                                <a href="{{url('frontend/images/pict5.png')}}">
+                                    <img src="{{url('frontend/images/pict5.png')}}" alt="thumbnail" class="xzoom-gallery" width="128" xpreview="frontend/images/pict5.png">
                                 </a>
                                 
                             </div>
@@ -143,21 +143,19 @@
 @endsection
 
 @push('prepend-style')
-    <link rel="stylesheet" href="{{url('frontend/libraries/xzoom/dist/xzoom.css')}}">
+    <link rel="stylesheet" href='{{url('frontend/libraries/xzoom/dist/xzoom.css')}}'>
 @endpush
 
 @push('addon-script')
-<script src="{{url('frontend/libraries/xzoom/dist/xzoom.min.js')}}"></script>
+<script src='{{url('frontend/libraries/xzoom/dist/xzoom.min.js')}}'></script>
 <script>
     $(document).ready(function(){
-        $('.xzoom, .xzoom-gallery').xzoom({
-            zoomWidth: 500,
-            title: false,
-            tint: '#333',
-            
-            Xoffset: 15
-        });
-    })
+            $('.xzoom, .xzoom-gallery').xzoom({
+                zoomWidth: 500,
+                title: false,
+                tint: '#333',
+                Xoffset: 15
+            })
+        })
 </script>
 @endpush
-@show

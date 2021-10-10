@@ -186,17 +186,17 @@
 @endpush
 
 @push('addon-script')
-<script src="{{url('frontend/libraries/xzoom/dist/xzoom.min.js')}}"></script>
+<script src="frontend/libraries/xzoom/dist/xzoom.min.js"></script>
+<script src="frontend/libraries/gijgo/js/gijgo.min.js"></script>
+{{-- <script src="{{url('frontend/libraries/xzoom/dist/xzoom.min.js')}}"></script> --}}
 <script>
     $(document).ready(function(){
-            // date picker
             $('.datepicker').datepicker({
                 uiLibrary: 'bootstrap4',
                 icons : {
-                    rightIcon : '<img src="{{url("frontend/images/ic_doe.png")}}">'
+                rightIcon : '<img src="{{url("frontend/images/ic_doe.png")}}">'
                 }
             })
         })
 </script>
 @endpush
-@show
