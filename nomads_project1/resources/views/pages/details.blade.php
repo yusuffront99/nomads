@@ -133,7 +133,7 @@
                         </table>
                     </div>
                     <div class="join-container">
-                        <a href="checkout.html" class="btn btn-block btn-join-now mt-3 py-2">Join Now</a>
+                        <a href="{{route('checkout')}}" class="btn btn-block btn-join-now mt-3 py-2">Join Now</a>
                     </div>
                 </div>
             </div>
