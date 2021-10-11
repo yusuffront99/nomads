@@ -33,7 +33,7 @@
                     <form class="form-inline d-sm-block d-md-none">
                         @csrf
                         <button class="btn btn-login my-2 my-sm-0"  type="button" onclick="event.preventDefault(); location.href='{{url('login')}}'">
-                            Logout
+                            Login
                         </button>
                     </form>
 
@@ -41,7 +41,7 @@
                     <form class="form-inline my-2 my-lg-0 d-none d-md-block">
                         @csrf
                         <button class="btn btn-login btn-navbar-right my-2 my-sm-0 px-4"  type="button" onclick="event.preventDefault(); location.href='{{url('login')}}'">
-                            Logout
+                            Login
                         </button>
                     </form>
                     @endguest
@@ -51,7 +51,7 @@
                     <form class="form-inline d-sm-block d-md-none" action="{{url('logout')}}" method="POST">
                         @csrf
                         <button class="btn btn-login my-2 my-sm-0" type="submit">
-                            Login
+                            Logout
                         </button>
                     </form>
 
@@ -59,7 +59,7 @@
                     <form class="form-inline my-2 my-lg-0 d-none d-md-block" action="{{url('logout')}}" method="POST">
                         @csrf
                         <button class="btn btn-login btn-navbar-right my-2 my-sm-0 px-4" type="submit">
-                            Login
+                            Logout
                         </button>
                     </form>
                     @endauth
