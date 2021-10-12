@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\TravelPackage;
 
 class TravelPackageController extends Controller
 {
@@ -14,7 +15,9 @@ class TravelPackageController extends Controller
      */
     public function index()
     {
-        return view('pages.admin.travel-package.index');
+        return view('pages.admin.travel-package.index', [
+            $items = TravelPackage::all()
+        ]);
     }
 
     /**

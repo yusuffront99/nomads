@@ -32,7 +32,6 @@ Route::prefix('admin')
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     });
 
-Route::resource('travel-package', TravelPackageController::class)->middleware(['auth','admin']);
-
+Route::resource('travel-package', TravelPackageController::class);
 Auth::routes(['verify' => true]);
 
