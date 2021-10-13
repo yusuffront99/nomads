@@ -45,7 +45,7 @@ class TravelPackageController extends Controller
         $data['slug'] = Str::slug($request->title);
         
         TravelPackage::create($data);
-        return redirect()->route('travel-package.index');
+        return redirect()->route('travel-package.index')->with('success', 'Data saved successfully!!!');;
     }
 
     /**
@@ -99,6 +99,9 @@ class TravelPackageController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $trash = TravelPackage::findOrFail($id);
+        $trash->delete();
+
+        return redirect()->route('travel-package.index')->with('danger', 'Data deleted successfully!!!');
     }
 }

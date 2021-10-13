@@ -30,6 +30,10 @@
                     <input type="text" name="title" id="title" class="form-control" placeholder="title" value="{{old('title')}}">
                 </div>
                 <div class="form-group">
+                    <label for="slug">slug</label>
+                    <input type="text" name="slug" id="slug" class="form-control" placeholder="slug" value="{{old('slug')}}">
+                </div>
+                <div class="form-group">
                     <label for="location">Location</label>
                     <input type="text" name="location" id="location" class="form-control" placeholder="location" value="{{old('location')}}">
                 </div>

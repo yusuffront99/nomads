@@ -11,8 +11,21 @@
         </a>
     </div>
 
+    {{-- flash message --}}
     <div class="row">
         <div class="card-body">
+        @if(session()->has('success'))
+                <div class="alert alert-success" role="alert">
+                {{session('success')}}
+            </div>
+        @endif
+
+        @if(session()->has('danger'))
+            <div class="alert alert-danger col-lg-8" role="alert">
+                {{session('danger')}}
+            </div>
+        @endif
+
             <div class="table-responsive">
                 <table class="table table-bordered" width="100%" cellspacing="0">
                     <thead>
@@ -39,9 +52,9 @@
                                     <a href="{{route('travel-package.edit' , $item->id)}}" class="btn btn-info">
                                         <i class="fa fa-pencil-alt"></i>
                                     </a>
-                                    <form action="{{route('travel-package.destroy', $item->id)}}" class="d-inline">
-                                        @csrf
+                                    <form action="{{route('travel-package.destroy', $item->id)}}" class="d-inline" method="POST">
                                         @method('delete')
+                                        @csrf
                                         <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
                                     </form>
                                 </td>
