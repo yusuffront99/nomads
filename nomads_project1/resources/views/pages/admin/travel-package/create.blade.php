@@ -11,8 +11,11 @@
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
-                @foreach ($erros as $error)
-                    <li>{{$error}}</li>
+                @php
+                    $no = 1;
+                @endphp
+                @foreach ($errors->all() as $error)
+                    <li>{{$no++}} {{$error}}</li>
                 @endforeach
             </ul>
         </div>
@@ -27,20 +30,24 @@
                     <input type="text" name="title" id="title" class="form-control" placeholder="title" value="{{old('title')}}">
                 </div>
                 <div class="form-group">
+                    <label for="slug">Slug</label>
+                    <input type="text" name="slug" id="slug" class="form-control" placeholder="slug" value="{{old('slug')}}">
+                </div>
+                <div class="form-group">
                     <label for="location">Location</label>
                     <input type="text" name="location" id="location" class="form-control" placeholder="location" value="{{old('location')}}">
                 </div>
                 <div class="form-group">
                     <label for="about">About</label>
-                    <textarea name="about" id="about"  rows="10" value={{old('about')}} placeholder="about" class="form-control d-block w-100"></textarea>
+                    <textarea name="about" id="about"   rows="10" value={{old('about')}} placeholder="about" class="form-control d-block w-100"></textarea>
                 </div>
                 <div class="form-group">
                     <label for="featured_event">Featured Event</label>
                     <input type="text" name="featured_event" id="featured_event" placeholder="Featured Event" class="form-control" value="{{old('featured_event')}}">
                 </div>
                 <div class="form-group">
-                    <label for="languange">Languange</label>
-                    <input type="text" name="languange" id="languange" placeholder="language" class="form-control" value="{{old('languange')}}">
+                    <label for="language">Language</label>
+                    <input type="text" name="language" id="language" placeholder="language" class="form-control" value="{{old('language')}}">
                 </div>
                 <div class="form-group">
                     <label for="foods">Foods</label>
@@ -52,11 +59,11 @@
                 </div>
                 <div class="form-group">
                     <label for="duration">Duration</label>
-                    <input type="date" name="duration" id="duration" placeholder="Duration" class="form-control" value="{{old('duration')}}">
+                    <input type="text" name="duration" id="duration" placeholder="Duration" class="form-control" value="{{old('duration')}}">
                 </div>
                 <div class="form-group">
                     <label for="type">Type</label>
-                    <input type="text" name="type" id="type"placeholder="Type" class="form-control" value="{{old('type')}}">
+                    <input type="text" name="type" id="type" placeholder="Type Trip" class="form-control" value="{{old('type')}}">
                 </div>
                 <div class="form-group">
                     <label for="price">Price</label>

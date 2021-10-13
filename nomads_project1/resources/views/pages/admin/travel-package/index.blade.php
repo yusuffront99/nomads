@@ -33,7 +33,7 @@
                                 <td>{{$item->title}}</td>
                                 <td>{{$item->location}}</td>
                                 <td>{{$item->type}}</td>
-                                <td>{{$item->departure_date}}</td>
+                                <td>{{$item->departured_date}}</td>
                                 <td>{{$item->type}}</td>
                                 <td>
                                     <a href="{{route('travel-package.edit' , $item->id)}}" class="btn btn-info">
