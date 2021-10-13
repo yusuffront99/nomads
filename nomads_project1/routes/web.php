@@ -7,6 +7,7 @@ use App\Http\Controllers\DetailsController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\TravelPackageController;
+use App\Http\Controllers\Admin\GalleryController;
 
 
 /*
@@ -33,5 +34,6 @@ Route::prefix('admin')
     });
 
 Route::resource('travel-package', TravelPackageController::class)->middleware(['auth','admin']);
+Route::resource('gallery', GalleryController::class)->middleware(['auth','admin']);
 Auth::routes(['verify' => true]);
 

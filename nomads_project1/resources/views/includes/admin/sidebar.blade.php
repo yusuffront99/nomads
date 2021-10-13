@@ -25,7 +25,7 @@
 
     <!-- Nav Item - Utilities Collapse Menu -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#">
+        <a class="nav-link collapsed" href="/gallery">
             <i class="fas fa-fw fa-images"></i>
             <span>Galeri Travel</span>
         </a>

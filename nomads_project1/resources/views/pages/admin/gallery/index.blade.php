@@ -5,9 +5,9 @@
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Paket Travel</h1>
-        <a href="{{route('travel-package.create')}}" class="btn btn-sm btn-primary shadow-sm">
-            <i class="fas fa-plus fa-sm text-white-50"></i> Tambah Paket Travel
+        <h1 class="h3 mb-0 text-gray-800">gallery</h1>
+        <a href="{{route('gallery.create')}}" class="btn btn-sm btn-primary shadow-sm">
+            <i class="fas fa-plus fa-sm text-white-50"></i> Tambah gallery
         </a>
     </div>
 
@@ -31,11 +31,8 @@
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Title</th>
-                            <th>Location</th>
-                            <th>Type</th>
-                            <th>Departure Date</th>
-                            <th>Type</th>
+                            <th>Travel</th>
+                            <th>Gambar</th>
                             <th>Action</th>
                         </tr>
 
@@ -43,11 +40,10 @@
                             @forelse ($items as $item)
                             <tr>
                                 <td>{{$item->id}}</td>
-                                <td>{{$item->title}}</td>
-                                <td>{{$item->location}}</td>
-                                <td>{{$item->type}}</td>
-                                <td>{{$item->departured_date}}</td>
-                                <td>{{$item->type}}</td>
+                                <td>{{$item->travel_package->title}}</td>
+                                <td>
+                                    <img src="{{storage::url($item->image)}}" alt="" width="150px" class="img-thumbnail">
+                                </td>
                                 <td>
                                     <a href="{{route('travel-package.edit' , $item->id)}}" class="btn btn-info">
                                         <i class="fa fa-pencil-alt"></i>
