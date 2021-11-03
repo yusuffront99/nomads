@@ -17,7 +17,7 @@
 
     <!-- Nav Item - Utilities Collapse Menu -->
     <li class="nav-item">
-        <a class="nav-link" href="/travel-package">
+        <a class="nav-link" href="/travel_package">
             <i class="fas fa-fw fa-hotel"></i>
             <span>Paket Travel</span>
         </a>
@@ -33,7 +33,7 @@
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#">
+        <a class="nav-link collapsed" href="/transaction">
             <i class="fas fa-fw fa-dollar-sign"></i>
             <span>Transaksi</span>
         </a>

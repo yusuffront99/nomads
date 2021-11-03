@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Gallery;
 use App\Models\TravelPackage;
 use App\Http\Requests\Admin\TravelPackageRequest;
 use Illuminate\Support\Str;
@@ -15,10 +16,11 @@ class TravelPackageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    //  */
     public function index()
     {
         return view('pages.admin.travel-package.index', [
-            'items' => TravelPackage::all()
+            'items' => TravelPackage::with(['travel_package'])->get()
         ]);
     }
 
@@ -45,7 +47,7 @@ class TravelPackageController extends Controller
         $data['slug'] = Str::slug($request->title);
         
         TravelPackage::create($data);
-        return redirect()->route('travel-package.index')->with('success', 'Data saved successfully!!!');;
+        return redirect()->route('travel_package.index')->with('success', 'Data saved successfully!!!');;
     }
 
     /**

@@ -33,7 +33,8 @@ Route::prefix('admin')
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     });
 
-Route::resource('travel-package', TravelPackageController::class)->middleware(['auth','admin']);
+Route::resource('travel_package', TravelPackageController::class)->middleware(['auth','admin']);
 Route::resource('gallery', GalleryController::class)->middleware(['auth','admin']);
+Route::resource('transaction', TransactionController::class)->middleware(['auth','admin']);
 Auth::routes(['verify' => true]);
 

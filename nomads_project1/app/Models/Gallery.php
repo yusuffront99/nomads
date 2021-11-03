@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\softDeletes;
 
 class Gallery extends Model
 {
@@ -17,6 +17,6 @@ class Gallery extends Model
 
     public function travel_package()
     {
-        return $this->belongsTo(TravelPackages::class, 'travel_packages_id', 'id');
+        return $this->belongsTo(TravelPackage::class, 'travel_packages_id','id');
     }
 }

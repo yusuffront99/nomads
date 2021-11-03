@@ -42,13 +42,13 @@
                                 <td>{{$item->id}}</td>
                                 <td>{{$item->travel_package->title}}</td>
                                 <td>
-                                    <img src="{{storage::url($item->image)}}" alt="" width="150px" class="img-thumbnail">
+                                    <img src="{{Storage::url($item->image)}}" alt="" width="150px" class="img-thumbnail" />
                                 </td>
                                 <td>
-                                    <a href="{{route('travel-package.edit' , $item->id)}}" class="btn btn-info">
+                                    <a href="{{route('travel_package.edit' , $item->id)}}" class="btn btn-info">
                                         <i class="fa fa-pencil-alt"></i>
                                     </a>
-                                    <form action="{{route('travel-package.destroy', $item->id)}}" class="d-inline" method="POST">
+                                    <form action="{{route('travel_package.destroy', $item->id)}}" class="d-inline" method="POST">
                                         @method('delete')
                                         @csrf
                                         <button class="btn btn-danger"><i class="fa fa-trash"></i></button>

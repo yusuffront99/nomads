@@ -5,8 +5,11 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Gallery;
+use App\Models\TravelPackage;
 use App\Http\Requests\Admin\GalleryRequest;
+use App\Http\Requests\Admin\TravelPackageRequest;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class GalleryController extends Controller
 {
@@ -17,7 +20,8 @@ class GalleryController extends Controller
      */
     public function index()
     {
-        $items = Gallery::with(['travel_package'])->get();
+    
+        $items = Gallery::all();
 
         return view('pages.admin.gallery.index', [
             'items' => $items
@@ -31,7 +35,10 @@ class GalleryController extends Controller
      */
     public function create()
     {
-        return view('pages.admin.travel-package.create');
+        $travel_packages = TravelPackage::all();
+        return view('pages.admin.gallery.create', [
+            'travel_packages' => $travel_packages
+        ]);
 
     }
 
@@ -41,13 +48,12 @@ class GalleryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(TravelPackageRequest $request)
+    public function store(GalleryRequest $request)
     {
         $data = $request->all();
-        $data['slug'] = Str::slug($request->title);
-        
+        $data['image'] = $request->file('image')->store('assets/gallery', 'public');
         Gallery::create($data);
-        return redirect()->route('travel-package.index')->with('success', 'Data saved successfully!!!');;
+        return redirect()->route('gallery.index')->with('success', 'Data saved successfully!!!');;
     }
 
     /**
