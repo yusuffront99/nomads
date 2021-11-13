@@ -13,7 +13,7 @@
             moment you never see before
         </p>
 
-        <a href="#" class="btn btn-get-started px-4 mt-4">Get Started</a>
+        <a href="{{url('/')}}" class="btn btn-get-started px-4 mt-4">Get Started</a>
     </header>
 
     <!-- Main -->
@@ -61,7 +61,7 @@
                             <div class="travel-country">INDONESIA</div>
                             <div class="travel-location">DERATAN, BALI</div>
                             <div class="travel-button mt-auto">
-                                <a href="details.html" class="btn btn-travel-details px-4">
+                                <a href="{{url('/details')}}" class="btn btn-travel-details px-4">
                                     View Details
                                 </a>
                             </div>
@@ -72,7 +72,7 @@
                             <div class="travel-country">INDONESIA</div>
                             <div class="travel-location">BROMO, MALANG</div>
                             <div class="travel-button mt-auto">
-                                <a href="details.html" class="btn btn-travel-details px-4">
+                                <a href="{{url('/details')}}" class="btn btn-travel-details px-4">
                                     View Details
                                 </a>
                             </div>
@@ -83,7 +83,7 @@
                             <div class="travel-country">INDONESIA</div>
                             <div class="travel-location">NUSA PENIDA</div>
                             <div class="travel-button mt-auto">
-                                <a href="details.html" class="btn btn-travel-details px-4">
+                                <a href="{{url('/details')}}" class="btn btn-travel-details px-4">
                                     View Details
                                 </a>
                             </div>
@@ -94,7 +94,7 @@
                             <div class="travel-country">MIDDLE EAST</div>
                             <div class="travel-location">DUBAI</div>
                             <div class="travel-button mt-auto">
-                                <a href="details.html" class="btn btn-travel-details px-4">
+                                <a href="{{url('/details')}}" class="btn btn-travel-details px-4">
                                     View Details
                                 </a>
                             </div>
@@ -117,7 +117,7 @@
                         </p>
                     </div>
                     <div class="col-md-8 text-center">
-                        <img src="frontend/images/logos_partner.jpg" alt="logo-partner" class="img-partner">
+                        <img src="{{url('frontend/images/logos_partner.jpg')}}" alt="logo-partner" class="img-partner">
                     </div>
                 </div>
             </div>
@@ -145,7 +145,7 @@
                     <div class="col-sm-6 col-md-6 col-lg-4">
                         <div class="card card-testimonial text-center">
                             <div class="testimonial-content">
-                                <img src="frontend/images/profil1.jpg" alt="User" class="mb-4 rounded-circle">
+                                <img src="{{url('frontend/images/profil1.jpg')}}" alt="User" class="mb-4 rounded-circle">
                                 <h3 class="mb-4">Jhon Mayke</h3>
                                 <p class="testimonial">
                                     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas delectus fugit voluptatibus sed voluptates"

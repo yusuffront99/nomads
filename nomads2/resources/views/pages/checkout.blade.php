@@ -184,10 +184,10 @@
 @endsection
 
 @push('prepend-style')
-    <link rel="stylesheet" href="frontend/libraries/gijgo/css/gijgo.min.css">
+    <link rel="stylesheet" href="{{url('frontend/libraries/gijgo/css/gijgo.min.css')}}">
 @endpush
 @push('prepend-script')
-<script src="frontend/libraries/gijgo/js/gijgo.min.js"></script>
+<script src="{{url('frontend/libraries/gijgo/js/gijgo.min.js')}}"></script>
 <script>
     $(document).ready(function(){
         // date picker
