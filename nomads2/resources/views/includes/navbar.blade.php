@@ -47,14 +47,14 @@
 
                     @auth
                         <!-- Mobile Button -->
-                        <form action="#" class="form-inline d-sm-block d-md-none" action="{{url('logout')}}" method="POST">
+                        <form class="form-inline d-sm-block d-md-none" action="{{url('logout')}}" method="POST">
                             @csrf
                             <button class="btn btn-login my-2 my-sm-0" type="submit">
                                 Logout
                             </button>
                         </form>
                         <!-- Dekstop Button -->
-                        <form action="#" class="form-inline my-2 my-lg-0 d-none d-md-block" action="{{url('logout')}}" method="POST">
+                        <form class="form-inline my-2 my-lg-0 d-none d-md-block" action="{{url('logout')}}" method="POST">
                             @csrf
                             <button class="btn btn-login btn-navbar-right my-2 my-sm-0 px-4" type="submit">
                                 Logout
