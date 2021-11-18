@@ -29,10 +29,11 @@ class TravelPackageRequest extends FormRequest
             'about' => 'required',
             'featured_event' => 'required|max:255',
             'language' => 'required|max:255',
-            'departure_date' => 'required|date',
+            'foods' => 'required|max:255',
+            'departured_date' => 'required|date',
             'duration' => 'required|max:255',
             'type' => 'required|max:255',
-            'price' => 'required|max:integer'
+            'price' => 'required|integer'
         ];
     }
 }

@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class TravelPackage extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory;
+    use SoftDeletes;
 
     protected $fillable = [
         'title','slug','location','about',
