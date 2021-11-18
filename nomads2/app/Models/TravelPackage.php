@@ -1,0 +1,22 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Model;
+
+class TravelPackage extends Model
+{
+    use HasFactory, SoftDeletes;
+
+    protected $fillable = [
+        'title','slug','location','about',
+        'featured_event','foods','departure_date','duration',
+        'type','price'
+    ];
+
+    protected $hidden = [
+
+    ];
+}
