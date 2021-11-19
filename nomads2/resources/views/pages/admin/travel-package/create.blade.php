@@ -56,6 +56,10 @@
                     <input type="text" name="duration" id="duration" class="form-control" placeholder="duration" value="{{old('duration')}}">
                 </div>
                 <div class="form-group">
+                    <label for="type">Trip Type</label>
+                    <input type="text" name="type" id="type" class="form-control" placeholder="type" value="{{old('type')}}">
+                </div>
+                <div class="form-group">
                     <label for="price">Price</label>
                     <input type="number" name="price" id="price" class="form-control" placeholder="price" value="{{old('price')}}">
                 </div>
