@@ -6,7 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DetailsController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\Admin\DashboardController;
-// use App\Http\Controllers\Admin\TravelPackageController;
+
 
 
 /*

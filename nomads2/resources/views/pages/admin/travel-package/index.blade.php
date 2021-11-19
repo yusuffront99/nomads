@@ -22,22 +22,37 @@
                             <th>Title</th>
                             <th>Location</th>
                             <th>Type</th>
-                            <th>Deparute Date</th>
+                            <th>Departure Date</th>
                             <th>Type</th>
                             <th>Action</th>
                         </tr>
                     </thead>
 
                     <tbody>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
+                        @forelse ($items as $item)
+                            <tr>
+                                <td>{{$item->id}}</td>
+                                <td>{{$item->title}}</td>
+                                <td>{{$item->location}}</td>
+                                <td>{{$item->type}}</td>
+                                <td>{{$item->departure_date}}</td>
+                                <td>{{$item->type}}</td>
+                                <td>
+                                    <a href="{{route('travel-package.edit', $item->id)}}" class="btn btn-info"><i class="fa fa-pencil-alt"></i></a>
+                                    <form action="{{route('travel-package.destroy', $item->id)}}" method="POST" class="d-inline">
+                                        @csrf
+                                        @method('delete')
+                                        <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="7" class="text-center">
+                                    Data Kosong
+                                </td>
+                            </tr>
+                        @endforelse
                     </tbody>
                 </table>
             </div>
