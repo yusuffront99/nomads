@@ -39,11 +39,78 @@
                                 <td>{{$item->type}}</td>
                                 <td>
                                     <a href="{{route('travel-package.edit', $item->id)}}" class="btn btn-info"><i class="fa fa-pencil-alt"></i></a>
-                                    <form action="{{route('travel-package.destroy', $item->id)}}" method="POST" class="d-inline">
-                                        @csrf
-                                        @method('delete')
-                                        <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
-                                    </form>
+                                    
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete">
+    <i class="fa fa-trash"></i>
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="deleteTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+    <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Info</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        Anda yakin menghapus data ini?
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <form action="{{route('travel-package.destroy', $item->id)}}" method="POST" class="d-inline" data-toggle="modal" data-target="#exampleModalCenter">
+            @csrf
+            @method('delete')
+            <button class="btn btn-danger">
+                <i class="fa fa-trash"></i>
+            </button>
+        </a>
+        </form>
+    </div>
+    </div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                                 </td>
                             </tr>
                         @empty
