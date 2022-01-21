@@ -34,7 +34,7 @@
                                     <img src="{{asset('storage/' . $item->image)}}" style="width: 150px" class="img-thumbnail" />
                                 </td>
                                 <td>
-                                    <a href="{{route('gallery.create', $item->id)}}" class="btn btn-info"><i class="fa fa-pencil-alt"></i></a>
+                                    <a href="{{route('gallery.edit', $item->id)}}" class="btn btn-info"><i class="fa fa-pencil-alt"></i></a>
                                     
                                     <!-- Button trigger modal -->
                                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete">
