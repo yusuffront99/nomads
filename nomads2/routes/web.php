@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\DashboardController;
 
 
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,6 +32,7 @@ Route::prefix('admin')
         Route::get('/', [DashboardController::class,'index'])->name('dashboard');
         Route::resource('travel-package', TravelPackageController::class);
         Route::resource('gallery', GalleryController::class);
+        Route::resource('transaction', TransactionController::class);
     });
 
 Auth::routes(['verify' => true]);

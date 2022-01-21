@@ -3,13 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\TravelPackage;
-use App\Models\User;
-use App\Http\Requests\Admin\TravelPackageRequest;
+use App\Http\Requests\Admin\TransactionRequest;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
-class TravelPackageController extends Controller
+class TransactionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,9 +17,11 @@ class TravelPackageController extends Controller
      */
     public function index()
     {
-        $items = TravelPackage::all();
+        $items = Transaction::with([
+            'details', 'travel_package', 'user'
+        ])->get();
 
-        return view('pages.admin.travel-package.index', [
+        return view('pages.admin.transaction.index', [
             'items' => $items
         ]);
     }
@@ -30,12 +31,10 @@ class TravelPackageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        return view('pages.admin.travel-package.create', [
-
-        ]);
-    }
+    // public function create()
+    // {
+    //     //
+    // }
 
     /**
      * Store a newly created resource in storage.
@@ -43,13 +42,9 @@ class TravelPackageController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(TravelPackageRequest $request)
+    public function store(Request $request)
     {
-        $data = $request->all();
-        $data['slug'] = Str::slug($request->title);
-
-        TravelPackage::create($data);
-        return redirect()->route('travel-package.index');
+        //
     }
 
     /**
@@ -60,7 +55,13 @@ class TravelPackageController extends Controller
      */
     public function show($id)
     {
-        //
+        $item = Transaction::with([
+            'details', 'travel_package', 'user'
+        ])->findOrFile($id);
+
+        return view('pages.admin.transaction.detail', [
+            'item'=> $item
+        ]);
     }
 
     /**
@@ -71,11 +72,7 @@ class TravelPackageController extends Controller
      */
     public function edit($id)
     {
-        $item = TravelPackage::findOrFail($id);
-
-        return view('pages.admin.travel-package.edit',[
-            'item' => $item
-        ]);
+        //
     }
 
     /**
@@ -85,15 +82,9 @@ class TravelPackageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(TravelPackageRequest $request, $id)
+    public function update(Request $request, $id)
     {
-        $data = $request->all();
-        $data['slug'] = Str::slug($request->title);
-
-        $item = TravelPackage::findOrFail($id);
-        $item->update($data);
-
-        return redirect()->route('travel-package.index');
+        //
     }
 
     /**
@@ -104,9 +95,6 @@ class TravelPackageController extends Controller
      */
     public function destroy($id)
     {
-        $item = TravelPackage::findOrFail($id);
-        $item->delete();
-
-        return redirect()->route('travel-package.index');
+        //
     }
 }

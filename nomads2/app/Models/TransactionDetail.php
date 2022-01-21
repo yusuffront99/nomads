@@ -12,14 +12,12 @@ class TransactionDetail extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'transaction_id', 'username', 'nationality','is_visa', 'doe_passport'
+        'transaction_id','username','nationality','is_visa','doe_passport'
     ];
 
-
     //Relationship
-
     public function transaction(){
-        return $this->belongsTo(Transaction::class, 'transactions_id','id');
+        return $this->belongsTo(TravelPackage::class, 'transaction_id', 'id');
     }
 
 }
