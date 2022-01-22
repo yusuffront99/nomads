@@ -28,7 +28,6 @@
 
                     <tbody>
                         @forelse ($items as $item)
-                            @dd($item->user)
                             <tr>
                                 <td>{{$item->id}}</td>
                                 <td>{{$item->travel_package->title}}</td>

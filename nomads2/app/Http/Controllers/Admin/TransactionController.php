@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\TransactionRequest;
 use App\Models\Transaction;
+use App\Models\TransactionDetail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -55,12 +56,10 @@ class TransactionController extends Controller
      */
     public function show($id)
     {
-        $item = Transaction::with([
-            'details', 'travel_package', 'user'
-        ])->findOrFile($id);
+        $item = Transaction::with(['details', 'travel_package','user'])->findOrFail($id);
 
         return view('pages.admin.transaction.detail', [
-            'item'=> $item
+            'item' => $item
         ]);
     }
 

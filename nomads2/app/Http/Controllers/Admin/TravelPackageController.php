@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\TravelPackage;
-use App\Models\User;
 use App\Http\Requests\Admin\TravelPackageRequest;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -60,7 +60,7 @@ class TravelPackageController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
