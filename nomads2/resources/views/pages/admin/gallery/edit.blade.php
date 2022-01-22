@@ -25,7 +25,12 @@
                 @csrf
                 <div class="form-group">
                     <label for="travel_packages_id">Paket Travel</label>
-                    <option value=""></option>
+                    <select name="travel_packages_id" class="form-control" required>
+                        <option value="{{$item->travel_package->id}}">Jangan Diubah</option>
+                        @foreach ($travel_packages as $travel_package)
+                            <option value="{{$travel_package->id}}">{{$travel_package->title}}</option>
+                        @endforeach
+                    </select>
                 </div>
 
                 <div class="form-group">

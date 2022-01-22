@@ -32,10 +32,10 @@ class TransactionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    // public function create()
-    // {
-    //     //
-    // }
+    public function create()
+    {
+        //
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -71,7 +71,13 @@ class TransactionController extends Controller
      */
     public function edit($id)
     {
-        //
+        $item = Transaction::findOrFail($id);
+
+        return view('pages.admin.transaction.edit', [
+            'item' => $item
+        ]);
+
+        return redirect()->route('transaction.index');
     }
 
     /**
@@ -83,7 +89,13 @@ class TransactionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+        $data['slug'] = Str::slug($request->title);
+
+        $item = Transaction::findOrFail($id);
+        $item->update($data);
+
+        return redirect()->route('transaction.index');
     }
 
     /**
@@ -94,6 +106,9 @@ class TransactionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $item = Transaction::findOrFail($id);
+        $item->delete();
+
+        return redirect()->route('transaction.index');
     }
 }
