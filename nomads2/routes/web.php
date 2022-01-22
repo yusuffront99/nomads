@@ -23,8 +23,26 @@ use App\Http\Controllers\Admin\DashboardController;
 
 Route::get('/', [HomeController::class,'index'])->name('home');
 Route::get('/details/{slug}', [DetailsController::class,'index'])->name('details');
-Route::get('/checkout', [CheckoutController::class,'index'])->name('checkout');
-Route::get('/checkout/success', [CheckoutController::class,'success'])->name('checkout-success');
+
+Route::post('/checkout/{id}', [CheckoutController::class, 'index'])
+    ->name('checkout_proccess')
+    ->middleware(['auth','verified']);
+
+Route::get('/checkout/{id}', [CheckoutController::class, 'process'])
+    ->name('checkout_proccess')
+    ->middleware(['auth','verified']);
+
+Route::post('/checkout/create/{detail_id}', [CheckoutController::class, 'create'])
+    ->name('checkout-create')
+    ->middleware(['auth','verified']);
+
+Route::get('/checkout/remove/{detail_id}', [CheckoutController::class, 'remove'])
+    ->name('checkout-remove')
+    ->middleware(['auth','verified']);
+
+Route::post('/checkout/confirm/{detail_id}', [CheckoutController::class, 'success'])
+    ->name('checkout-success')
+    ->middleware(['auth','verified']);
 
 Route::prefix('admin')
     ->namespace('App\Http\Controllers\Admin')->middleware(['auth','admin'])

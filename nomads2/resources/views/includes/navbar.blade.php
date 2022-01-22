@@ -30,7 +30,7 @@
 
                     @guest
                         <!-- Mobile Button -->
-                        <form action="#" class="form-inline d-sm-block d-md-none">
+                        <form class="form-inline d-sm-block d-md-none">
                             @csrf
                             <button class="btn btn-login my-2 my-sm-0" type="button" onclick="event.preventDefault(); location.href='{{url('login')}}';">
                                 Login
