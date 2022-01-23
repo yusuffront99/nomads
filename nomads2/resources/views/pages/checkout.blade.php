@@ -27,11 +27,11 @@
 
                 <div class="row">
                     <div class="col-lg-8 pl-lg-0">
-                        <div class="card card-details mb-2">
+                        <div class="card card-details">
                             @if ($errors->any())
                                 <div class="alert alert-danger">
                                     <ul>
-                                        @foreach ($errors as $error)
+                                        @foreach ($errors->all() as $error)
                                             <li>{{$error}}</li>
                                         @endforeach
                                     </ul>
@@ -74,7 +74,7 @@
                                                 </td>
                                                 <td class="align-middle">
                                                     <a href="{{route('checkout-remove', $detail->id)}}">
-                                                        <img src="{{url('frontend/images/ic_remove')}}" alt=""/>
+                                                        <img src="{{url('frontend/images/ic_remove.png')}}" style="width:25px">
                                                     </a>
                                                 </td>
                                             </tr>
@@ -91,20 +91,24 @@
 
                             <div class="members mt-3">
                                 <h3>Add Member</h3>
-                                <form action="" class="form-inline">
-                                    <label for="inputUsername" class="sr-only">Name</label>
-                                    <input type="text" name="inputUsername" id="inputUsername" class="form-control mb-2 mr-sm-2" placeholder="Username">
+                                <form action="{{route('checkout-create', $item->id)}}" class="form-inline" method="POST">
+                                    @csrf
+                                    <label for="username" class="sr-only">username</label>
+                                    <input type="text" name="username" id="username" class="form-control mb-2 mr-sm-2" placeholder="username" required>
 
-                                    <label for="inputVisa" class="sr-only">Visa</label>
-                                    <select name="inputVisa" id="inputVisa" class="custom-select mb-2 mr-sm-2">
-                                        <option value="VISA" selected>VISA</option>
-                                        <option value="30 Days">30 Days</option>
-                                        <option value="N/A">N/A</option>
+                                    <label for="nationality" class="sr-only">Nationality</label>
+                                    <input type="text" name="nationality" id="nationality" class="form-control mb-2 mr-sm-2" placeholder="Nationality" style="width: 50px" required>
+
+                                    <label for="is_visa" class="sr-only">Visa</label>
+                                    <select name="is_visa" id="is_visa" class="custom-select mb-2 mr-sm-2" required>
+                                        <option value="" selected>VISA</option>
+                                        <option value="1">30 Days</option>
+                                        <option value="0">N/A</option>
                                     </select>
 
-                                    <label for="doePassport"class="sr-only">DOE Passport</label>
                                     <div class="input-group mb-2 mr-sm-2">
-                                        <input type="text" name="doePassport" id="doePassport" class="form-control datepicker" placeholder="DOE Passport">
+                                        <label for="doe_passport" class="sr-only">DOE Passport</label>
+                                        <input type="text" name="doe_passport" id="doe_passport" class="form-control datepicker" placeholder="DOE Passport">
                                     </div>
 
                                     <button type="submit" class="btn btn-add-now mb-2 px-4">Add Now</button>
@@ -125,31 +129,31 @@
                                 <tr>
                                     <th width="50%">Members</th>
                                     <td width="50%" class="text-right">
-                                        22 Agustus 2021
+                                        {{$item->details->count()}} person
                                     </td>
                                 </tr>
                                 <tr>
                                     <th width="50%">Additonial VISA</th>
                                     <td width="50%" class="text-right">
-                                        $ 190,00
+                                        ${{$item->additional_visa}},00
                                     </td>
                                 </tr>
                                 <tr>
                                     <th width="50%">Trip Price</th>
                                     <td width="50%" class="text-right">
-                                        $ 80,00 / Person
+                                        ${{$item->travel_package->price}}/Person
                                     </td>
                                 </tr>
                                 <tr>
                                     <th width="50%">Sub Total</th>
                                     <td width="50%" class="text-right">
-                                        $ 280,00
+                                        ${{$item->transaction_total}},00
                                     </td>
                                 </tr>
                                 <tr>
                                     <th width="60%">Total (+Unique Code)</th>
                                     <td width="60%" class="text-right">
-                                        <span class="text-blue"> $ 279,</span><span class="text-orange">33</span>
+                                        <span class="text-blue"> ${{$item->transaction_total}},</span><span class="text-orange">{{mt_rand(0,99)}}</span>
                                     </td>
                                 </tr>
                             </table><hr>
@@ -160,7 +164,7 @@
                             </p>
                             <div class="bank">
                                 <div class="bank-item pb-3">
-                                    <img src="frontend/images/ic_bank.png" alt="bank" class="bank-image">
+                                    <img src="{{url('frontend/images/ic_bank.png')}}" alt="bank" class="bank-image">
                                     <div class="descriptions">
                                         <h3>PT Nomads ID</h3>
                                         <p>
@@ -172,7 +176,7 @@
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="bank-item pb-3">
-                                    <img src="frontend/images/ic_bank.png" alt="bank" class="bank-image">
+                                    <img src="{{url('frontend/images/ic_bank.png')}}" alt="bank" class="bank-image">
                                     <div class="descriptions">
                                         <h3>PT Nomads ID</h3>
                                         <p>
@@ -201,17 +205,19 @@
 @push('prepend-style')
     <link rel="stylesheet" href="{{url('frontend/libraries/gijgo/css/gijgo.min.css')}}">
 @endpush
-@push('prepend-script')
+
+@push('addon-script')
 <script src="{{url('frontend/libraries/gijgo/js/gijgo.min.js')}}"></script>
+
 <script>
     $(document).ready(function(){
-        // date picker
         $('.datepicker').datepicker({
             uiLibrary: 'bootstrap4',
+            format : 'yyyy-mm-dd',
             icons : {
-                rightIcon : '<img src="frontend/images/ic_doe.png">'
+                rightIcon: '<img src="{{url('frontend/images/ic_doe.png')}}">'
             }
-        })
-    })
+        });
+    });
 </script>
 @endpush
