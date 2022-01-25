@@ -116,7 +116,7 @@ p {
                         <tbody>
                         <tr>
                             <td style="width:150px;">
-                            <img alt="" height="auto" src="frontend/images/logo_nomads.png" style="border:none;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="150" />
+                            <img alt="" height="auto" src="{{url('frontend/images/logo_nomads.png')}}" style="border:none;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="150" />
                             </td>
                         </tr>
                         </tbody>
@@ -176,7 +176,7 @@ p {
                         <tbody>
                         <tr>
                             <td style="width:550px;">
-                            <img alt="" height="auto" src="frontend/images/image_show.png" style="border:none;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="550" />
+                            <img alt="" height="auto" src="{{url($data->travel_package->galleries[0]->image)}}" style="border:none;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="550" />
                             </td>
                         </tr>
                         </tbody>
@@ -204,7 +204,7 @@ p {
                 <tbody>
                 <tr>
                     <td align="left" style="font-size:0px;padding:10px 25px;padding-right:25px;padding-left:25px;word-break:break-word;">
-                    <div style="font-family:Assistant, Helvetica, Arial, Sans-serif;font-size:18px;line-height:28px;text-align:left;color:#071C4D;">Hi, Yusuf <br><br> Tiket digital kamu sudah berhasil di cetak <br> Booking ID <Strong>#25012022</Strong></div>
+                    <div style="font-family:Assistant, Helvetica, Arial, Sans-serif;font-size:18px;line-height:28px;text-align:left;color:#071C4D;">Hi, {{$data->user->name}} <br><br> Tiket digital kamu sudah berhasil di cetak <br> Booking ID <Strong>#25012022</Strong></div>
                     </td>
                 </tr>
                 <tr>
@@ -213,14 +213,12 @@ p {
                         <tr>
                         <td colspan="3">Members</td>
                         </tr>
-                        <tr>
-                        <td><Strong>Yusuf</Strong></td>
-                        <td style="text-align:right">Australia, AU</td>
-                        </tr>
-                        <tr>
-                        <td><Strong>Ahmad</Strong></td>
-                        <td style="text-align:right">Indonesia, ID</td>
-                        </tr>
+                        @foreach ($data->details as $item)
+                            <tr>
+                                <td><Strong>{{$item->username}}</Strong></td>
+                                <td style="text-align:right">{{$item->nationality}}</td>
+                            </tr>
+                        @endforeach
                     </table>
                     </td>
                 </tr>
@@ -234,11 +232,11 @@ p {
                         </tr>
                         <tr>
                         <td><Strong>Departure</Strong></td>
-                        <td style="text-align:right">Nusa Penida</td>
+                        <td style="text-align:right">{{$data->travel_package->title}}</td>
                         </tr>
                         <tr>
                         <td><Strong>Date and Time</Strong></td>
-                        <td style="text-align:right">Thu, 25 Jan 2022</td>
+                        <td style="text-align:right">{{$data->travel_package->departure_date}}</td>
                         </tr>
                     </table>
                     </td>
@@ -249,10 +247,10 @@ p {
                         <tbody>
                         <tr>
                             <td align="center" bgcolor="#FF9E53" role="presentation" style="border:none;border-radius:7px;cursor:auto;mso-padding-alt:10px 25px;background:#FF9E53;" valign="middle">
-                            <p style="display:inline-block;background:#FF9E53;color:#ffffff;font-family:Assistant, Hervetica, Arial, Sans-serif;font-size:18px;font-weight:bold;line-height:120%;margin:0;text-decoration:none;text-transform:none;padding:10px 25px;mso-padding-alt:0px;border-radius:7px;"> Check Detail </p>
+                            <a href="{{url('checkout/' . $data->id)}}" style="display:inline-block;background:#FF9E53;color:#ffffff;font-family:Assistant, Hervetica, Arial, Sans-serif;font-size:18px;font-weight:bold;line-height:120%;margin:0;text-decoration:none;text-transform:none;padding:10px 25px;mso-padding-alt:0px;border-radius:7px;"> Check Detail </a>
                             </td>
                         </tr>
-                        </tbody>
+                        </tbody> 
                     </table>
                     </td>
                 </tr>
@@ -285,7 +283,7 @@ p {
                     <table cellpadding="0" cellspacing="0" width="100%" border="0" style="color:#000000;font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;line-height:22px;table-layout:auto;width:100%;border:none;">
                         <tr>
                         <td style="width:50px">
-                            <img src="frontend/images/ic_language.png" width="50px">
+                            <img src="{{url('frontend/images/ic_language.png')}}" width="50px">
                         </td>
                         <td style="font-size:18px; padding-left:10px; color:#071C4D; font-family:Assistant, Hervetica, Arialm Sans-serif"> support@nomads.id <br> 021-2022-0124 </td>
                         </tr>
